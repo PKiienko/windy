@@ -4,14 +4,6 @@
   box-sizing: border-box;
 }
 
-.app {
-  background-color: rgb(238, 238, 238);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-}
-
 .card {
   display: flex;
   align-items: center;
@@ -67,7 +59,7 @@
   transform: scale(1);
 }
 
-/* @media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
   .card,
   .settings {
     flex-direction: row;
@@ -84,4 +76,4 @@
   .channel-name {
     font-size: 1rem;
   }
-} */
+}

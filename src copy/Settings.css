@@ -1,0 +1,30 @@
+.settings {
+  z-index: 10;
+  opacity: 1;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.min-value,
+.max-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.close-btn {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.input-field {
+  width: 2.5rem;
+  height: 1.5rem;
+  border: none;
+  border-radius: 0.1rem;
+  font-size: 1rem;
+}

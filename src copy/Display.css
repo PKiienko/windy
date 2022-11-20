@@ -1,0 +1,24 @@
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+.top-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.temperature-value {
+  font-size: 5rem;
+}
+
+.channel-name,
+.channel-time {
+  font-size: 1rem;
+}

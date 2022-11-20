@@ -1,22 +1,18 @@
 import { useState, useEffect, useMemo } from "react";
-import Loading from "./Loading";
 import Display from './Display';
-import Settings from "./Settings";
 import Chart from './Chart';
-import MyCalendar from './MyCalendar';
+import Settings from "./Settings";
 import './App.css'
 
 const App = () => {
   const [channelInfo, setChannelInfo] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [results, setResults] = useState(10);
-  const [currentTemp, setCurrentTemp] = useState(0);
-  const [minT, setMinT] = useState(-10);
-  const [maxT, setMaxT] = useState(30);
-  const [value, onChange] = useState(new Date());
+  const [results, setResults] = useState(20);
+  const [currentTemp, setCurrentTemp] = useState();
+  const [minT, setMinT] = useState(-50);
+  const [maxT, setMaxT] = useState(50);
   const [showSettings, setShowSettings] = useState(false);
   const [showChart, setShowChart] = useState(false);
-  const [showMyCalendar, setShowMyCalendar] = useState(false);
 
   const dateWithOffset = useMemo(() => {
     if (!channelInfo) return "";
@@ -61,18 +57,12 @@ const App = () => {
     setShowChart((prev) => !prev);
   }
 
-  const onMyCalendar = () => {
-    setShowMyCalendar((prev) => !prev);
-  }
-
-
   return (
-    <div className='app'>
-      {isLoading ? <Loading /> : <>
-        <Display channelInfo={channelInfo} dateWithOffset={dateWithOffset} onSettings={onSettings} onChart={onChart} onMyCalendar={onMyCalendar} getThermoData={getThermoData} />
+    <div className={`card ${effect}`}>
+      {isLoading ? <p className="loading">Loading...</p> : <>
+        <Display channelInfo={channelInfo} dateWithOffset={dateWithOffset} onSettings={onSettings} onChart={onChart} />
         <Settings onSettings={onSettings} showSettings={showSettings} minT={minT} setMinT={setMinT} maxT={maxT} setMaxT={setMaxT} />
         <Chart results={results} setResults={setResults} channelInfo={channelInfo} showChart={showChart} onChart={onChart} />
-        <MyCalendar showMyCalendar={showMyCalendar} onMyCalendar={onMyCalendar} onChange={onChange} value={value} />
       </>
       }
     </div>

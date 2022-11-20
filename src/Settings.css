@@ -1,0 +1,51 @@
+.settings {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 15rem;
+  height: 10rem;
+  margin: 1rem;
+  padding: 0.5rem;
+  background-color: #cafbc2;
+  border: 0.2rem solid grey;
+  border-radius: 0.5rem;
+  font-family: "Roboto", sans-serif;
+  position: absolute;
+}
+
+.top-bar-settings {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.limits {
+  height: 85%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.limit-setter {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.limit-setter h4 {
+  font-size: 1rem;
+  margin: 0.5rem;
+}
+
+.input-field {
+  width: 4rem;
+  height: 1.5rem;
+  border: 0.1rem solid grey;
+  border-radius: 0.1rem;
+  font-size: 1rem;
+}
