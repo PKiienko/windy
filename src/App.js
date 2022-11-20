@@ -12,8 +12,7 @@ const App = () => {
   const [results, setResults] = useState(10);
   const [currentTemp, setCurrentTemp] = useState(0);
   const [minT, setMinT] = useState(-10);
-  const [maxT, setMaxT] = useState(30);
-  const [value, onChange] = useState(new Date());
+  const [maxT, setMaxT] = useState(30);  
   const [showSettings, setShowSettings] = useState(false);
   const [showChart, setShowChart] = useState(false);
   const [showMyCalendar, setShowMyCalendar] = useState(false);
@@ -72,7 +71,7 @@ const App = () => {
         <Display channelInfo={channelInfo} dateWithOffset={dateWithOffset} onSettings={onSettings} onChart={onChart} onMyCalendar={onMyCalendar} getThermoData={getThermoData} />
         <Settings onSettings={onSettings} showSettings={showSettings} minT={minT} setMinT={setMinT} maxT={maxT} setMaxT={setMaxT} />
         <Chart results={results} setResults={setResults} channelInfo={channelInfo} showChart={showChart} onChart={onChart} />
-        <MyCalendar showMyCalendar={showMyCalendar} onMyCalendar={onMyCalendar} onChange={onChange} value={value} />
+        <MyCalendar showMyCalendar={showMyCalendar} onMyCalendar={onMyCalendar} />
       </>
       }
     </div>
