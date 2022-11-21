@@ -5,6 +5,7 @@ import './MyCalendar.css';
 
 const MyCalendar = ({ showMyCalendar, onMyCalendar }) => {
   const [fileData, setFileData] = useState(null);
+  const [keeper, setKeeper] = useState('Lets findout');
   const [selectedDate, setSelectedDate] = useState({
     day: 13,
     month: 11,
@@ -12,15 +13,32 @@ const MyCalendar = ({ showMyCalendar, onMyCalendar }) => {
   });
 
   //setting date according to date picker
-  const selectingDate = (e) => {
-    console.log(e.target.value);
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    setSelectedDate({
+      ...selectedDate,
+      [name]: +value,
+    });
+    console.log(typeof selectedDate.day);
+
+    keeperFinder();
   };
 
   //finding kepper on selected date
   const keeperFinder = () => {
     if (fileData === null) {
       console.log('file not selected');
-      return;
+    }
+    for (let i = 0; i < fileData.length; i++) {
+      if (
+        fileData[i].day === selectedDate.day &&
+        fileData[i].month === selectedDate.month &&
+        fileData[i].year === selectedDate.year
+      ) {
+        console.log(fileData[i]);
+        setKeeper(fileData[i].keeper);
+      }
     }
   };
 
@@ -55,30 +73,33 @@ const MyCalendar = ({ showMyCalendar, onMyCalendar }) => {
               type='number'
               min='1'
               max='31'
-              defaultValue={selectedDate.day}
-              onChange={selectingDate}
+              value={selectedDate.day}
+              name='day'
+              onChange={handleInputChange}
             />
             <input
               className='date-unit'
               type='number'
               min='1'
               max='12'
-              defaultValue={selectedDate.month}
-              onChange={selectingDate}
+              value={selectedDate.month}
+              name='month'
+              onChange={handleInputChange}
             />
             <input
               className='date-unit'
               type='number'
               min='2020'
               max='2030'
-              defaultValue={selectedDate.year}
-              onChange={selectingDate}
+              value={selectedDate.year}
+              name='year'
+              onChange={handleInputChange}
             />
           </div>
 
           <div className='keeper-name'>
             <h4>Keeper:</h4>
-            <h4>KEEPER</h4>
+            <h4>{keeper}</h4>
           </div>
 
           <form className='fileForm'>
